@@ -17,10 +17,10 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
-  })
+    response.json({ info: 'Node.js, Express, and Postgres API. Use \'/getjson\' route to return the latest entry in the Postgres database hosted on RDS.' })
+})
 
-app.get('/jsontable', db.getInfoById)
+app.get('/getjson', db.getInfoById)
 app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
-  })
+    console.log(`AgnosticAdmin RDS app running on port ${port}.`)
+})

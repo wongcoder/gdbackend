@@ -13,13 +13,11 @@ const pool = new Pool({
 })
 
 const getInfoById = (request, response) => {
-    const id = parseInt(request.params.id)
-
-    pool.query('SELECT * FROM jsontable WHERE jsonid = 1', (error, results) => {
+    pool.query('select jsonstring from jsontable order by jsonid desc limit 1', (error, results) => {
         if (error) {
             throw error
         }
-        response.status(200).json(results.rows)
+        response.status(200).json(results.rows[0])
     })
 }
 
