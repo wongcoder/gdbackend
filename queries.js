@@ -13,7 +13,7 @@ const pool = new Pool({
 })
 
 const getInfoById = (request, response) => {
-    pool.query('select jsonstring from jsontable order by jsonid desc limit 1', (error, results) => {
+    pool.query('select jsonstring from jsontable order by jsonid desc limit 10', (error, results) => {
         if (error) {
             throw error
         }
@@ -21,6 +21,16 @@ const getInfoById = (request, response) => {
     })
 }
 
+const submitData = (req, res) => {
+    const body = req.body
+    pool.query('insert into jsontable(jsonstring) values ($1)', [body], (error, results)=> {
+        if (error) throw error
+    })
+    res.status(201).send('Successfully added result')
+
+}
+
 module.exports = {
-    getInfoById
+    getInfoById,
+    submitData
 }
