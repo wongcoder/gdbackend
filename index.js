@@ -16,6 +16,11 @@ app.use(
     })
 )
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API. Use \'/getjson\' route to return the latest entry in the Postgres database hosted on RDS.' })
 })
