@@ -39,7 +39,7 @@ const clearAllData = (request, response) => {
 }
 
 const resetJsonTableIDSerializer = (request, response) => {
-    pool.query('alter sequence jsontest_jsontest_id_seq restart with 1;', (error, results) => {
+    pool.query('alter sequence jsontest_jsontest_id_seq restart with 1', (error, results) => {
         if (error) {
             throw error
         }
@@ -49,5 +49,7 @@ const resetJsonTableIDSerializer = (request, response) => {
 
 module.exports = {
     getInfoById,
-    submitData
+    submitData,
+    clearAllData,
+    resetJsonTableIDSerializer
 }
