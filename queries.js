@@ -27,7 +27,24 @@ const submitData = (req, res) => {
         if (error) throw error
     })
     res.status(201).send('Successfully added result')
+}
 
+const clearAllData = (request, response) => {
+    pool.query('delete from jsontable', (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows[0])
+    })
+}
+
+const resetJsonTableIDSerializer = (request, response) => {
+    pool.query('alter sequence jsontest_jsontest_id_seq restart with 1;', (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows[0])
+    })
 }
 
 module.exports = {

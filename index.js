@@ -29,6 +29,9 @@ app.get('/', (request, response) => {
 app.post('/submit', db.submitData)
 
 app.get('/getjson', db.getInfoById)
+app.get('/clearalljsondata', db.clearAllData)
+app.get('/resetjsonserializer', db.resetJsonTableIDSerializer)
+
 app.listen(port, () => {
     console.log(`AgnosticAdmin RDS app running on port ${port}.`)
 })
