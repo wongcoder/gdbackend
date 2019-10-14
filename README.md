@@ -33,7 +33,7 @@ localhost:3000/getrff
 ```
 
 ## Built With
-* [MongoDB](https://www.mongodb.com/) - Database
+* [PostgreSQL](https://www.postgresql.org/) - Database
 * [Express.js](https://expressjs.com/) - Backend
 * [React.js](https://reactjs.org/) - Frontend
 * [Node.js](https://nodejs.org/en/) - Environment
