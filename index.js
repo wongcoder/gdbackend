@@ -23,14 +23,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API. Use \'/getjson\' route to return the latest entry in the Postgres database hosted on RDS.' })
+    response.json({ info: 'Node.js, Express, and Postgres API. Use \'/getrff\' route to return a json list of all rff\'s and their associated lat/lon values.' })
 })
 
-app.post('/submit', db.submitData)
 
-app.get('/getjson', db.getInfoById)
-app.get('/clearalljsondata', db.clearAllData)
-app.get('/resetjsonserializer', db.resetJsonTableIDSerializer)
+app.get('/getrff', db.getRffLatLon)
 
 app.listen(port, () => {
     console.log(`AgnosticAdmin RDS app running on port ${port}.`)
