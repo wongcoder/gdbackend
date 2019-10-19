@@ -42,14 +42,13 @@ const newCaller = (req, res) => {
     res.status(201).send('Successfully added new caller')
 }
 
-// const clearAllData = (request, response) => {
-//     pool.query('delete from jsontable', (error, results) => {
-//         if (error) {
-//             throw error
-//         }
-//         response.status(200).json(results.rows[0])
-//     })
-// }
+const deleteCaller = (req, res) => {
+    const body = req.body
+    pool.query('delete from caller where call_id = $1', [body["call_id"]], (error, results)=> {
+        if (error) throw error
+    })
+    res.status(201).send('Successfully added delete caller')
+}
 
 // const resetJsonTableIDSerializer = (request, response) => {
 //     pool.query('alter sequence jsontest_jsontest_id_seq restart with 1', (error, results) => {
@@ -65,4 +64,5 @@ module.exports = {
     getCaller,
     updateCaller,
     newCaller,
+    deleteCaller
 }

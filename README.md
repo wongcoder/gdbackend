@@ -27,12 +27,15 @@ Current Database Host:
 ###### FRONT END
 1. Connect to Express backend using EC2 endpoint (see infrastructure team)
 2. Go to default homepage of backend to see GET/POST request info.
+
+## GET:
 ```
-GET:
 /getrff    -- Returns all RFF rows and columns
 /getcaller -- Returns all Caller rows and columns
+```
 
-POST:
+## POST:
+```
 /updatecaller
 >> Updates the lat/lon columns in a Caller row based on the mmsi_id. 
 >> Example POST body: {"lat":"3","lon":"4", "mmsi_id":"338432400"}
@@ -50,7 +53,11 @@ POST:
     "rff_2": "Creole",
     "rff_theta_2":"11.94"
     }
-    
+
+/deletecaller
+>> Deletes a Caller row based on call_id. 
+>> For debugging purposes so the database is not overflowed.
+>> Example POST body: { "call_id": 5 }
 ...<more to be added>...
 ```
 
