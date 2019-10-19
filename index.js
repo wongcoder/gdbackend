@@ -27,7 +27,10 @@ app.get('/', (request, response) => {
 })
 
 
-app.get('/getrff', db.getRffLatLon)
+app.get('/getrff', db.getRff)
+app.get('/getcaller', db.getCaller)
+app.post('/newcaller', db.newCaller)
+app.post('/updatecaller', db.updateCaller)
 
 app.listen(port, () => {
     console.log(`AgnosticAdmin RDS app running on port ${port}.`)
