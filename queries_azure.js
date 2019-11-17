@@ -1,24 +1,11 @@
 const Pool = require('pg').Pool
-
-/* Use below for queries on old RDS instance */
-// const pool = new Pool({
-//     user: 'AgnosticAdmin',
-//     host: 'rds-agnostic.cfvmqjeugdxx.us-east-2.rds.amazonaws.com',
-//     database: 'rds_agnostic',
-//     password: '25u8zYUnNndyKAgNZuFy',
-//     port: 5432,
-// })
-/* ********************************************** */
-
-/* Use below for queries on new RDS instance */
 const pool = new Pool({
-    user: 'postgres',
-    host: 'appdb.ce4bhnhwspk4.us-west-2.rds.amazonaws.com',
+    user: 'gdms@gdms-db',
+    host: 'gdms-db.postgres.database.azure.com',
     database: 'postgres',
-    password: 'wlhHcy80*ER!',
+    password: 'e9CcmBzR&8%4',
     port: 5432,
 })
-/* ********************************************** */
 
 const getRff = (request, response) => {
     pool.query('select * from rff', (error, results) => {
