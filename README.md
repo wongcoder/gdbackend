@@ -17,11 +17,7 @@ node index.js
 
 Current Database Host:
 ```
-    user: 'AgnosticAdmin',
-    host: 'rds-agnostic.cfvmqjeugdxx.us-east-2.rds.amazonaws.com',
-    database: 'rds_agnostic',
-    password: 'See James / Dale',
-    port: 5432
+    AWS(RDS), Azure.
 ```
 
 ###### FRONT END
@@ -40,7 +36,7 @@ Current Database Host:
 >> Updates the lat/lon columns in a Caller row based on the mmsi_id. 
 >> Example POST body: {"lat":"3","lon":"4", "mmsi_id":"338432400"}
 
-/addcaller
+/newcaller
 >> Adds a new Caller row.
 >> Example POST body: 
     {
